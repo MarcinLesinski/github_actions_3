@@ -1,8 +1,22 @@
 name: Reusable Deploy
-on: workflow_call
+on: 
+  workflow_call:
+    inputs:
+      param2:
+        type: string
+        description: sample param 2
+        required: false
+        default: "value 2"
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+    - name: Get Code
+      uses: actions/download-artifact@v4
+      with:
+        #name: dist-file # it works but u have to be sure upper script uplod this.
+        name: ${{ inputs.param2 }}
+    - name: List files
+      run: ls
     - name: Some text
       run: echo "Dummy output"
