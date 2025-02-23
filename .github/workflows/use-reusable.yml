@@ -52,6 +52,11 @@ jobs:
       param2: dist-files
     secrets:
       secret1: ${{ secrets.some-secret }}
+  print-results:
+    runs-on: ubuntu-latest
+    steps:  
+      - name: print
+        run: echo "${{ needs.deploy.outputs.result }}
   report:
     needs: [lint, deploy]
     if: failure() 
