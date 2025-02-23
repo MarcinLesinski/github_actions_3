@@ -13,7 +13,7 @@ on:
     outputs:
       result:
         description: Result of this workflow
-        value: ${{ jobs.deploy.output.outcome }}
+        value: ${{ jobs.deploy.outputs.outcome }}
 jobs:
   deploy:
     outputs:
