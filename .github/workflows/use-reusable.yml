@@ -53,7 +53,7 @@ jobs:
     secrets:
       secret1: ${{ secrets.some-secret }}
   print-results:
-    needs: build
+    needs: deploy
     runs-on: ubuntu-latest
     steps:  
       - name: print
