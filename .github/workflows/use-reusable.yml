@@ -48,6 +48,8 @@ jobs:
   deploy:
     needs: build
     uses: ./.github/workflows/reusable.yml
+    with:
+      param2: dist-file
   report:
     needs: [lint, deploy]
     if: failure() 
